@@ -20,7 +20,7 @@ public class ProjectFormPanel extends JPanel {
 
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(5,5,5,5);
+        gbc.insets = new Insets(5, 5, 5, 5);
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
         JLabel lblProjectName = new JLabel("Project Name:");
@@ -30,7 +30,7 @@ public class ProjectFormPanel extends JPanel {
         txtTeamLeader = new JTextField(15);
 
         JLabel lblTeamSize = new JLabel("Team Size:");
-        cmbTeamSize = new JComboBox<>(new String[]{
+        cmbTeamSize = new JComboBox<>(new String[] {
                 "Select",
                 "1-3",
                 "4-6",
@@ -39,7 +39,7 @@ public class ProjectFormPanel extends JPanel {
         });
 
         JLabel lblProjectType = new JLabel("Project Type:");
-        cmbProjectType = new JComboBox<>(new String[]{
+        cmbProjectType = new JComboBox<>(new String[] {
                 "Select",
                 "Web",
                 "Mobile",
@@ -53,32 +53,38 @@ public class ProjectFormPanel extends JPanel {
         btnSave = new JButton("Save");
         btnClear = new JButton("Clear");
 
-        gbc.gridx = 0; gbc.gridy = 0;
+        gbc.gridx = 0;
+        gbc.gridy = 0;
         add(lblProjectName, gbc);
         gbc.gridx = 1;
         add(txtProjectName, gbc);
 
-        gbc.gridx = 0; gbc.gridy++;
+        gbc.gridx = 0;
+        gbc.gridy++;
         add(lblTeamLeader, gbc);
         gbc.gridx = 1;
         add(txtTeamLeader, gbc);
 
-        gbc.gridx = 0; gbc.gridy++;
+        gbc.gridx = 0;
+        gbc.gridy++;
         add(lblTeamSize, gbc);
         gbc.gridx = 1;
         add(cmbTeamSize, gbc);
 
-        gbc.gridx = 0; gbc.gridy++;
+        gbc.gridx = 0;
+        gbc.gridy++;
         add(lblProjectType, gbc);
         gbc.gridx = 1;
         add(cmbProjectType, gbc);
 
-        gbc.gridx = 0; gbc.gridy++;
+        gbc.gridx = 0;
+        gbc.gridy++;
         add(lblStartDate, gbc);
         gbc.gridx = 1;
         add(txtStartDate, gbc);
 
-        gbc.gridx = 0; gbc.gridy++;
+        gbc.gridx = 0;
+        gbc.gridy++;
         add(btnSave, gbc);
         gbc.gridx = 1;
         add(btnClear, gbc);
@@ -96,21 +102,18 @@ public class ProjectFormPanel extends JPanel {
         String projectType = (String) cmbProjectType.getSelectedItem();
 
         if (projectName.isEmpty() ||
-            teamLeader.isEmpty() ||
-            startDate.isEmpty() ||
-            teamSize.equals("Select") ||
-            projectType.equals("Select")) {
+                teamLeader.isEmpty() ||
+                startDate.isEmpty() ||
+                teamSize.equals("Select") ||
+                projectType.equals("Select")) {
 
-            JOptionPane.showMessageDialog(this,
-                    "Please fill all fields!",
-                    "Error",
+            JOptionPane.showMessageDialog(this, "Please fill all fields!", "Error",
                     JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter formatter =
-                DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
         String recordTime = now.format(formatter);
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("projects.txt", true))) {
@@ -133,15 +136,11 @@ public class ProjectFormPanel extends JPanel {
             writer.newLine();
             writer.newLine();
 
-            JOptionPane.showMessageDialog(this,
-                    "Project saved successfully!",
-                    "Success",
+            JOptionPane.showMessageDialog(this, "Project saved successfully!", "Success",
                     JOptionPane.INFORMATION_MESSAGE);
 
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(this,
-                    "Error writing to file!",
-                    "File Error",
+            JOptionPane.showMessageDialog(this, "Error writing to file!", "File Error",
                     JOptionPane.ERROR_MESSAGE);
         }
     }

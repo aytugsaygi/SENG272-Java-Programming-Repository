@@ -7,3 +7,12 @@ Start Date   : 02/03/2026
 Record Time  : 02/03/2026 21:46:41
 ========================
 
+---- Project Entry ----
+Project Name : asddasd
+Team Leader  : adsdasd
+Team Size    : 4-6
+Project Type : Mobile
+Start Date   : dfghdfhgdf
+Record Time  : 03/03/2026 01:09:39
+========================
+
