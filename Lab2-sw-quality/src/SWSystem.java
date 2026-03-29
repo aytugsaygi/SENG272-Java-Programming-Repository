@@ -28,7 +28,7 @@ public class SWSystem {
         double total = 0;
         double weights = 0;
 
-        for(QualityDimension d : dimensions) {
+        for (QualityDimension d : dimensions) {
 
             total += d.calculateDimensionScore() * d.getWeight();
             weights += d.getWeight();
@@ -44,14 +44,26 @@ public class SWSystem {
         QualityDimension weakest = null;
         double min = Double.MAX_VALUE;
 
-        for(QualityDimension d : dimensions) {
+        for (QualityDimension d : dimensions) {
             double score = d.calculateDimensionScore();
-            if(score < min) {
+            if (score < min) {
                 min = score;
                 weakest = d;
             }
         }
         return weakest;
+    }
+
+    public String getQualityLabel(double score) {
+
+        if (score >= 4.5)
+            return "Excellent Quality";
+        if (score >= 3.5)
+            return "Good Quality";
+        if (score >= 2.5)
+            return "Needs Improvement";
+
+        return "Poor Quality";
     }
 
     public void printReport() {
@@ -61,10 +73,11 @@ public class SWSystem {
         System.out.println("System: " + name + " v" + version + " (" + category + ")");
         System.out.println("========================================");
 
-        for(QualityDimension d : dimensions) {
-            System.out.println("\n--- " + d.getName() + " [" + d.getIsoCode() + "] (Weight: " + (int)d.getWeight() + ") ---");
+        for (QualityDimension d : dimensions) {
+            System.out.println(
+                    "\n--- " + d.getName() + " [" + d.getIsoCode() + "] (Weight: " + (int) d.getWeight() + ") ---");
 
-            for(Criterion c : d.getCriteria()) {
+            for (Criterion c : d.getCriteria()) {
                 double score = c.calculateScore();
                 System.out.println(c.getMetricName() + ": "
                         + c.getMeasuredValue() + " " + c.getUnit()
@@ -79,7 +92,8 @@ public class SWSystem {
         double overall = calculateOverallScore();
 
         System.out.println("\n========================================");
-        System.out.println("OVERALL QUALITY SCORE: " + overall + "/5");
+        System.out.println("OVERALL QUALITY SCORE: "
+                + overall + "/5 [" + getQualityLabel(overall) + "]");
         System.out.println("========================================");
 
         QualityDimension weakest = findWeakestDimension();
@@ -97,6 +111,6 @@ public class SWSystem {
     }
 
     private String capitalize(String text) {
-        return text.substring(0,1).toUpperCase() + text.substring(1).toLowerCase();
+        return text.substring(0, 1).toUpperCase() + text.substring(1).toLowerCase();
     }
 }
