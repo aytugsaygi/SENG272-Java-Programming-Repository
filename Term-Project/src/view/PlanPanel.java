@@ -58,7 +58,6 @@ public class PlanPanel extends JPanel {
 
         List<QualityDimension> dimensions = scenario.getDimensions();
         for (QualityDimension dim : dimensions) {
-            // Dimension header
             JPanel dimHeader = new JPanel(new FlowLayout(FlowLayout.LEFT, 8, 6)) {
                 @Override
                 protected void paintComponent(Graphics g) {
@@ -79,7 +78,6 @@ public class PlanPanel extends JPanel {
             dimHeader.add(dimLabel);
             contentPanel.add(dimHeader);
 
-            // Metrics table
             String[] columns = {"Metric", "Coefficient", "Direction", "Range", "Unit"};
             List<Metric> metrics = dim.getMetrics();
             Object[][] data = new Object[metrics.size()][5];
@@ -108,7 +106,6 @@ public class PlanPanel extends JPanel {
             contentPanel.add(Box.createVerticalStrut(16));
         }
 
-        // Navigation
         JPanel navPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 10, 0));
         navPanel.setOpaque(false);
         navPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -144,7 +141,6 @@ public class PlanPanel extends JPanel {
         table.setSelectionForeground(UITheme.TEXT_PRIMARY);
         table.setIntercellSpacing(new Dimension(0, 0));
 
-        // Header
         JTableHeader header = table.getTableHeader();
         header.setBackground(UITheme.TABLE_HEADER);
         header.setForeground(Color.WHITE);
@@ -152,7 +148,6 @@ public class PlanPanel extends JPanel {
         header.setBorder(null);
         ((DefaultTableCellRenderer) header.getDefaultRenderer()).setHorizontalAlignment(SwingConstants.LEFT);
 
-        // Alternating rows
         table.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
             @Override
             public Component getTableCellRendererComponent(JTable t, Object val, boolean sel, boolean focus, int row, int col) {
@@ -165,7 +160,6 @@ public class PlanPanel extends JPanel {
             }
         });
 
-        // Column widths
         table.getColumnModel().getColumn(0).setPreferredWidth(160);
         table.getColumnModel().getColumn(1).setPreferredWidth(90);
         table.getColumnModel().getColumn(2).setPreferredWidth(130);

@@ -56,7 +56,6 @@ public class AnalysePanel extends JPanel {
 
         List<QualityDimension> dimensions = scenario.getDimensions();
 
-        // 5a. Dimension Scores (progress bars)
         JLabel secA = sectionLabel("5a. Dimension-Based Weighted Averages");
         contentPanel.add(secA);
         contentPanel.add(Box.createVerticalStrut(10));
@@ -75,7 +74,6 @@ public class AnalysePanel extends JPanel {
         }
         contentPanel.add(Box.createVerticalStrut(16));
 
-        // 5b. Radar Chart (Bonus)
         JLabel secB = sectionLabel("5b. Radar Chart (Bonus)");
         contentPanel.add(secB);
         contentPanel.add(Box.createVerticalStrut(10));
@@ -103,7 +101,6 @@ public class AnalysePanel extends JPanel {
         contentPanel.add(radarContainer);
         contentPanel.add(Box.createVerticalStrut(20));
 
-        // 5c. Gap Analysis
         JLabel secC = sectionLabel("5c. Gap Analysis");
         contentPanel.add(secC);
         contentPanel.add(Box.createVerticalStrut(10));
@@ -113,7 +110,6 @@ public class AnalysePanel extends JPanel {
         }
         contentPanel.add(Box.createVerticalStrut(24));
 
-        // Navigation
         JPanel navPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 10, 0));
         navPanel.setOpaque(false);
         navPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -160,7 +156,6 @@ public class AnalysePanel extends JPanel {
         row.setMaximumSize(new Dimension(Integer.MAX_VALUE, 60));
         row.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        // Left: name + coeff
         JPanel labelPanel = new JPanel(new GridLayout(2, 1, 0, 2));
         labelPanel.setOpaque(false);
         labelPanel.setPreferredSize(new Dimension(180, 40));
@@ -176,7 +171,6 @@ public class AnalysePanel extends JPanel {
         labelPanel.add(nameLabel);
         labelPanel.add(coeffLabel);
 
-        // Center: progress bar
         JPanel barPanel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
@@ -189,11 +183,9 @@ public class AnalysePanel extends JPanel {
                 int barY = (h - barH) / 2;
                 int totalW = getWidth();
 
-                // Background track
                 g2.setColor(UITheme.BG_INPUT);
                 g2.fillRoundRect(0, barY, totalW, barH, barH, barH);
 
-                // Filled portion
                 double ratio = score / 5.0;
                 int fillW = (int)(totalW * ratio);
                 Color barColor = getScoreColor(score);
@@ -206,7 +198,6 @@ public class AnalysePanel extends JPanel {
         };
         barPanel.setOpaque(false);
 
-        // Right: score value
         JLabel scoreLabel = new JLabel(String.format("%.2f", score) + " / 5.0");
         scoreLabel.setFont(UITheme.fontBold());
         scoreLabel.setForeground(getScoreColor(score));

@@ -45,7 +45,6 @@ public class RadarChart extends JPanel {
         int n = scores.length;
         double maxScore = 5.0;
 
-        // Draw grid rings
         int rings = 5;
         for (int r = 1; r <= rings; r++) {
             double ringRadius = radius * r / rings;
@@ -53,7 +52,7 @@ public class RadarChart extends JPanel {
             g2.setStroke(new BasicStroke(0.8f));
             g2.setColor(new Color(100, 116, 139, 80));
             g2.drawPolygon(poly);
-            // Ring label
+
             if (r < rings) {
                 g2.setFont(UITheme.fontSmall().deriveFont(9f));
                 g2.setColor(UITheme.TEXT_MUTED);
@@ -61,7 +60,6 @@ public class RadarChart extends JPanel {
             }
         }
 
-        // Draw axes
         g2.setStroke(new BasicStroke(1f));
         g2.setColor(new Color(100, 116, 139, 120));
         for (int i = 0; i < n; i++) {
@@ -71,7 +69,6 @@ public class RadarChart extends JPanel {
             g2.drawLine(cx, cy, ax, ay);
         }
 
-        // Draw data polygon (filled)
         int[] dataX = new int[n];
         int[] dataY = new int[n];
         for (int i = 0; i < n; i++) {
@@ -81,7 +78,6 @@ public class RadarChart extends JPanel {
             dataY[i] = (int)(cy + r2 * Math.sin(angle));
         }
 
-        // Filled polygon
         Polygon dataPoly = new Polygon(dataX, dataY, n);
         g2.setColor(new Color(59, 130, 246, 60));
         g2.fillPolygon(dataPoly);
@@ -89,7 +85,6 @@ public class RadarChart extends JPanel {
         g2.setStroke(new BasicStroke(2f));
         g2.drawPolygon(dataPoly);
 
-        // Draw data points
         for (int i = 0; i < n; i++) {
             g2.setColor(UITheme.PRIMARY_LIGHT);
             g2.fillOval(dataX[i] - 4, dataY[i] - 4, 8, 8);
@@ -98,7 +93,6 @@ public class RadarChart extends JPanel {
             g2.drawOval(dataX[i] - 4, dataY[i] - 4, 8, 8);
         }
 
-        // Draw labels
         g2.setFont(UITheme.fontSmall().deriveFont(10f));
         for (int i = 0; i < n; i++) {
             double angle = Math.toRadians(270 + 360.0 * i / n);
@@ -111,7 +105,6 @@ public class RadarChart extends JPanel {
             FontMetrics fm = g2.getFontMetrics();
             int lw = fm.stringWidth(label);
 
-            // Adjust for quadrant
             if (Math.cos(angle) < -0.1) lx -= lw;
             else if (Math.abs(Math.cos(angle)) <= 0.1) lx -= lw / 2;
 
@@ -123,7 +116,6 @@ public class RadarChart extends JPanel {
             g2.setFont(UITheme.fontSmall().deriveFont(10f));
         }
 
-        // Title
         g2.setFont(UITheme.fontBold().deriveFont(11f));
         g2.setColor(UITheme.TEXT_SECONDARY);
         FontMetrics fm = g2.getFontMetrics();

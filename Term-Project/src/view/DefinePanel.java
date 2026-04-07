@@ -37,7 +37,6 @@ public class DefinePanel extends JPanel {
         scrollContent.setLayout(new BoxLayout(scrollContent, BoxLayout.Y_AXIS));
         scrollContent.setBorder(BorderFactory.createEmptyBorder(24, 40, 24, 40));
 
-        // Title
         JLabel title = new JLabel("Step 2: Define Quality Dimensions");
         title.setFont(UITheme.fontTitle());
         title.setForeground(UITheme.TEXT_PRIMARY);
@@ -52,7 +51,6 @@ public class DefinePanel extends JPanel {
         scrollContent.add(subtitle);
         scrollContent.add(Box.createVerticalStrut(24));
 
-        // 2a. Quality Type
         scrollContent.add(makeSectionLabel("2a. Quality Type Selection"));
         scrollContent.add(Box.createVerticalStrut(10));
 
@@ -71,7 +69,6 @@ public class DefinePanel extends JPanel {
         scrollContent.add(qualityCard);
         scrollContent.add(Box.createVerticalStrut(20));
 
-        // 2b. Mode
         scrollContent.add(makeSectionLabel("2b. Mode Selection"));
         scrollContent.add(Box.createVerticalStrut(10));
 
@@ -98,7 +95,6 @@ public class DefinePanel extends JPanel {
         scrollContent.add(modeCard);
         scrollContent.add(Box.createVerticalStrut(20));
 
-        // 2c. Scenario
         scrollContent.add(makeSectionLabel("2c. Scenario Selection"));
         scrollContent.add(Box.createVerticalStrut(10));
 
@@ -110,7 +106,6 @@ public class DefinePanel extends JPanel {
         scrollContent.add(scenarioPanel);
         scrollContent.add(Box.createVerticalStrut(24));
 
-        // Navigation
         JPanel navPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 10, 0));
         navPanel.setOpaque(false);
         navPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -173,7 +168,6 @@ public class DefinePanel extends JPanel {
         }
 
         if (!scenarios.isEmpty()) {
-            // Select first scenario by default
             Component first = scenarioPanel.getComponent(0);
             if (first instanceof JPanel) {
                 for (Component c : ((JPanel) first).getComponents()) {
@@ -238,7 +232,7 @@ public class DefinePanel extends JPanel {
         JPanel panel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
-                // transparent
+
             }
         };
         panel.setOpaque(false);

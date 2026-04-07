@@ -3,7 +3,7 @@ package model;
 public class Metric {
     private String name;
     private int coefficient;
-    private String direction; // "Higher is better" or "Lower is better"
+    private String direction;
     private double rangeMin;
     private double rangeMax;
     private String unit;
@@ -38,7 +38,6 @@ public class Metric {
             score = 5.0 - (value - min) / (max - min) * 4.0;
         }
         score = Math.max(1.0, Math.min(5.0, score));
-        // Round to nearest 0.5
         score = Math.round(score * 2.0) / 2.0;
         return score;
     }

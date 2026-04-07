@@ -42,7 +42,6 @@ public class ProfilePanel extends JPanel {
         gc.weightx = 1;
         gc.gridx = 0;
 
-        // Icon + Title
         JLabel icon = new JLabel("👤");
         icon.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 32));
         icon.setHorizontalAlignment(SwingConstants.CENTER);
@@ -66,7 +65,6 @@ public class ProfilePanel extends JPanel {
         gc.insets = new Insets(0, 0, 24, 0);
         card.add(subtitle, gc);
 
-        // Username
         gc.gridy = 3;
         gc.insets = new Insets(0, 0, 4, 0);
         card.add(makeLabel("Username"), gc);
@@ -76,7 +74,6 @@ public class ProfilePanel extends JPanel {
         gc.insets = new Insets(0, 0, 14, 0);
         card.add(usernameField, gc);
 
-        // School
         gc.gridy = 5;
         gc.insets = new Insets(0, 0, 4, 0);
         card.add(makeLabel("School"), gc);
@@ -86,7 +83,6 @@ public class ProfilePanel extends JPanel {
         gc.insets = new Insets(0, 0, 14, 0);
         card.add(schoolField, gc);
 
-        // Session Name
         gc.gridy = 7;
         gc.insets = new Insets(0, 0, 4, 0);
         card.add(makeLabel("Session Name"), gc);
@@ -96,7 +92,6 @@ public class ProfilePanel extends JPanel {
         gc.insets = new Insets(0, 0, 28, 0);
         card.add(sessionField, gc);
 
-        // Next button
         JButton nextBtn = new JButton("Next: Define Quality →");
         UITheme.styleButton(nextBtn, UITheme.PRIMARY_LIGHT, Color.WHITE);
         nextBtn.setPreferredSize(new Dimension(0, 42));

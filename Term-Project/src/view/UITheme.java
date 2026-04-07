@@ -3,17 +3,17 @@ package view;
 import java.awt.*;
 
 public class UITheme {
-    // Colors
-    public static final Color PRIMARY = new Color(30, 58, 138);       // Deep blue
-    public static final Color PRIMARY_LIGHT = new Color(59, 130, 246); // Bright blue
-    public static final Color SECONDARY = new Color(16, 185, 129);    // Emerald
-    public static final Color BG_MAIN = new Color(15, 23, 42);        // Dark navy
-    public static final Color BG_CARD = new Color(30, 41, 59);        // Card bg
-    public static final Color BG_INPUT = new Color(51, 65, 85);       // Input bg
+
+    public static final Color PRIMARY = new Color(30, 58, 138);
+    public static final Color PRIMARY_LIGHT = new Color(59, 130, 246);
+    public static final Color SECONDARY = new Color(16, 185, 129);
+    public static final Color BG_MAIN = new Color(15, 23, 42);
+    public static final Color BG_CARD = new Color(30, 41, 59);
+    public static final Color BG_INPUT = new Color(51, 65, 85);
     public static final Color TEXT_PRIMARY = new Color(248, 250, 252);
     public static final Color TEXT_SECONDARY = new Color(148, 163, 184);
     public static final Color TEXT_MUTED = new Color(100, 116, 139);
-    public static final Color ACCENT = new Color(245, 158, 11);       // Amber accent
+    public static final Color ACCENT = new Color(245, 158, 11);
     public static final Color DANGER = new Color(239, 68, 68);
     public static final Color SUCCESS = new Color(34, 197, 94);
     public static final Color BORDER = new Color(51, 65, 85);
@@ -24,7 +24,6 @@ public class UITheme {
     public static final Color TABLE_ROW_ALT = new Color(30, 41, 59);
     public static final Color TABLE_ROW = new Color(15, 23, 42);
 
-    // Fonts
     public static Font fontTitle() {
         return new Font("Segoe UI", Font.BOLD, 22);
     }
@@ -44,11 +43,9 @@ public class UITheme {
         return new Font("Segoe UI", Font.BOLD, 13);
     }
 
-    // Dimensions
     public static final int PADDING = 20;
     public static final int CORNER_RADIUS = 12;
 
-    // Style helper: configure standard button
     public static void styleButton(javax.swing.JButton btn, Color bg, Color fg) {
         btn.setBackground(bg);
         btn.setForeground(fg);

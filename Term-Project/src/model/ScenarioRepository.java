@@ -7,7 +7,6 @@ import java.util.Map;
 
 public class ScenarioRepository {
 
-    // mode -> list of scenarios
     private static final Map<String, List<Scenario>> scenarioMap = new HashMap<>();
 
     static {

@@ -45,7 +45,6 @@ public class StepIndicator extends JPanel {
         for (int i = 0; i < n; i++) {
             int cx = stepW * i + stepW / 2;
 
-            // Connector line
             if (i < n - 1) {
                 int nextCx = stepW * (i + 1) + stepW / 2;
                 g2.setStroke(new BasicStroke(2f));
@@ -57,7 +56,6 @@ public class StepIndicator extends JPanel {
                 g2.drawLine(cx + circleR, cy, nextCx - circleR, cy);
             }
 
-            // Circle
             Color circleColor;
             if (i == currentStep) {
                 circleColor = UITheme.STEP_ACTIVE;            } else if (completed[i]) {
@@ -71,7 +69,6 @@ public class StepIndicator extends JPanel {
             g2.setFont(UITheme.fontBold().deriveFont(12f));
 
             if (completed[i] && i != currentStep) {
-                // Draw checkmark
                 g2.setStroke(new BasicStroke(2f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
                 int bx = cx - 5;
                 int by = cy;
@@ -83,7 +80,6 @@ public class StepIndicator extends JPanel {
                 g2.drawString(num, cx - fm.stringWidth(num) / 2, cy + fm.getAscent() / 2 - 1);
             }
 
-            // Step name below
             g2.setFont(i == currentStep ? UITheme.fontBold().deriveFont(11f) : UITheme.fontSmall());
             g2.setColor(i == currentStep ? UITheme.TEXT_PRIMARY : UITheme.TEXT_SECONDARY);
             FontMetrics fm2 = g2.getFontMetrics();

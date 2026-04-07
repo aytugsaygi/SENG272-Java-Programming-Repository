@@ -56,7 +56,6 @@ public class CollectPanel extends JPanel {
         contentPanel.add(subtitle);
         contentPanel.add(Box.createVerticalStrut(4));
 
-        // Formula info
         JPanel formulaCard = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
@@ -87,11 +86,9 @@ public class CollectPanel extends JPanel {
         contentPanel.add(formulaCard);
         contentPanel.add(Box.createVerticalStrut(18));
 
-        // All metrics table
         String[] columns = {"Metric", "Direction", "Range", "Value", "Score (1–5)", "Coeff / Unit"};
         List<QualityDimension> dimensions = scenario.getDimensions();
 
-        // Count rows
         int totalRows = 0;
         for (QualityDimension d : dimensions) totalRows += d.getMetrics().size();
 
@@ -126,7 +123,6 @@ public class CollectPanel extends JPanel {
         contentPanel.add(tableScroll);
         contentPanel.add(Box.createVerticalStrut(24));
 
-        // Navigation
         JPanel navPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT, 10, 0));
         navPanel.setOpaque(false);
         navPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -174,7 +170,6 @@ public class CollectPanel extends JPanel {
         header.setBorder(null);
         ((DefaultTableCellRenderer) header.getDefaultRenderer()).setHorizontalAlignment(SwingConstants.LEFT);
 
-        // Score column highlighted
         table.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
             @Override
             public Component getTableCellRendererComponent(JTable t, Object val, boolean sel, boolean focus, int row, int col) {

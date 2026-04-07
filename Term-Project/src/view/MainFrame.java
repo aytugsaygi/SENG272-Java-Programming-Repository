@@ -31,19 +31,15 @@ public class MainFrame extends JFrame {
     private void initComponents() {
         setLayout(new BorderLayout());
 
-        // Header
         JPanel header = createHeader();
         add(header, BorderLayout.NORTH);
 
-        // Step indicator
         stepIndicator = new StepIndicator();
 
-        // Center area: step indicator + cards
         JPanel centerArea = new JPanel(new BorderLayout());
         centerArea.setBackground(UITheme.BG_MAIN);
         centerArea.add(stepIndicator, BorderLayout.NORTH);
 
-        // Card layout
         cardLayout = new CardLayout();
         cardPanel = new JPanel(cardLayout);
         cardPanel.setBackground(UITheme.BG_MAIN);
@@ -71,7 +67,6 @@ public class MainFrame extends JFrame {
                 Graphics2D g2 = (Graphics2D) g.create();
                 g2.setColor(UITheme.PRIMARY);
                 g2.fillRect(0, 0, getWidth(), getHeight());
-                // Subtle gradient overlay
                 GradientPaint gp = new GradientPaint(0, 0, new Color(30, 58, 138), getWidth(), 0, new Color(17, 24, 89));
                 g2.setPaint(gp);
                 g2.fillRect(0, 0, getWidth(), getHeight());
@@ -102,7 +97,6 @@ public class MainFrame extends JFrame {
         cardLayout.show(cardPanel, String.valueOf(step));
         stepIndicator.setCurrentStep(step);
 
-        // Refresh panels that need updated data
         switch (step) {
             case 2: planPanel.refresh(); break;
             case 3: collectPanel.refresh(); break;
