@@ -10,10 +10,7 @@ public class ScenarioRepository {
     private static final Map<String, List<Scenario>> scenarioMap = new HashMap<>();
 
     static {
-        // ========== HEALTH MODE ==========
         List<Scenario> healthScenarios = new ArrayList<>();
-
-        // Health - Scenario A
         Scenario healthA = new Scenario("Scenario A — Hospital Portal");
         QualityDimension hA_usability = new QualityDimension("Usability", 25);
         hA_usability.addMetric(new Metric("Task success rate", 50, "Higher is better", 0, 100, "%", 82));
@@ -36,7 +33,6 @@ public class ScenarioRepository {
         healthA.addDimension(hA_rel);
         healthScenarios.add(healthA);
 
-        // Health - Scenario B
         Scenario healthB = new Scenario("Scenario B — Patient Monitoring");
         QualityDimension hB_acc = new QualityDimension("Accessibility", 20);
         hB_acc.addMetric(new Metric("WCAG compliance", 50, "Higher is better", 0, 100, "%", 88));
@@ -61,10 +57,8 @@ public class ScenarioRepository {
 
         scenarioMap.put("Health", healthScenarios);
 
-        // ========== EDUCATION MODE ==========
         List<Scenario> educationScenarios = new ArrayList<>();
 
-        // Education - Scenario C (from spec)
         Scenario eduC = new Scenario("Scenario C — Team Alpha");
         QualityDimension eC_usability = new QualityDimension("Usability", 25);
         eC_usability.addMetric(new Metric("SUS score", 50, "Higher is better", 0, 100, "points", 89));
@@ -92,7 +86,6 @@ public class ScenarioRepository {
         eduC.addDimension(eC_func);
         educationScenarios.add(eduC);
 
-        // Education - Scenario D
         Scenario eduD = new Scenario("Scenario D — Team Beta");
         QualityDimension eD_usability = new QualityDimension("Usability", 25);
         eD_usability.addMetric(new Metric("SUS score", 50, "Higher is better", 0, 100, "points", 72));
@@ -122,9 +115,7 @@ public class ScenarioRepository {
 
         scenarioMap.put("Education", educationScenarios);
 
-        // ========== CUSTOM MODE ==========
         List<Scenario> customScenarios = new ArrayList<>();
-        // Custom mode uses a placeholder scenario; user defines from scratch
         Scenario customA = new Scenario("Custom Scenario 1");
         QualityDimension cA_dim1 = new QualityDimension("Quality", 50);
         cA_dim1.addMetric(new Metric("Custom Metric 1", 50, "Higher is better", 0, 100, "points", 70));

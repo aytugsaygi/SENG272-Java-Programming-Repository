@@ -18,9 +18,17 @@ public class QualityDimension {
         metrics.add(metric);
     }
 
-    public String getName() { return name; }
-    public int getCoefficient() { return coefficient; }
-    public List<Metric> getMetrics() { return metrics; }
+    public String getName() {
+        return name;
+    }
+
+    public int getCoefficient() {
+        return coefficient;
+    }
+
+    public List<Metric> getMetrics() {
+        return metrics;
+    }
 
     public double calculateDimensionScore() {
         double sumWeightedScores = 0.0;
@@ -29,7 +37,8 @@ public class QualityDimension {
             sumWeightedScores += m.calculateScore() * m.getCoefficient();
             sumCoefficients += m.getCoefficient();
         }
-        if (sumCoefficients == 0) return 0;
+        if (sumCoefficients == 0)
+            return 0;
         return sumWeightedScores / sumCoefficients;
     }
 }

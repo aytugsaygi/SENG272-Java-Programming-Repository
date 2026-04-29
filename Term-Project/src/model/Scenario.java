@@ -16,9 +16,16 @@ public class Scenario {
         dimensions.add(dimension);
     }
 
-    public String getName() { return name; }
-    public List<QualityDimension> getDimensions() { return dimensions; }
+    public String getName() {
+        return name;
+    }
+
+    public List<QualityDimension> getDimensions() {
+        return dimensions;
+    }
 
     @Override
-    public String toString() { return name; }
+    public String toString() {
+        return name;
+    }
 }

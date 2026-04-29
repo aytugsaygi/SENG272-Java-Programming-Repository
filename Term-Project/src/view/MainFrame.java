@@ -67,7 +67,8 @@ public class MainFrame extends JFrame {
                 Graphics2D g2 = (Graphics2D) g.create();
                 g2.setColor(UITheme.PRIMARY);
                 g2.fillRect(0, 0, getWidth(), getHeight());
-                GradientPaint gp = new GradientPaint(0, 0, new Color(30, 58, 138), getWidth(), 0, new Color(17, 24, 89));
+                GradientPaint gp = new GradientPaint(0, 0, new Color(30, 58, 138), getWidth(), 0,
+                        new Color(17, 24, 89));
                 g2.setPaint(gp);
                 g2.fillRect(0, 0, getWidth(), getHeight());
                 g2.dispose();
@@ -98,9 +99,15 @@ public class MainFrame extends JFrame {
         stepIndicator.setCurrentStep(step);
 
         switch (step) {
-            case 2: planPanel.refresh(); break;
-            case 3: collectPanel.refresh(); break;
-            case 4: analysePanel.refresh(); break;
+            case 2:
+                planPanel.refresh();
+                break;
+            case 3:
+                collectPanel.refresh();
+                break;
+            case 4:
+                analysePanel.refresh();
+                break;
         }
     }
 

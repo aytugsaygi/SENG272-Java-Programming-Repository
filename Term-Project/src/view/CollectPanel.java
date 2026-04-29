@@ -40,7 +40,8 @@ public class CollectPanel extends JPanel {
         contentPanel.removeAll();
 
         Scenario scenario = controller.getSession().getSelectedScenario();
-        if (scenario == null) return;
+        if (scenario == null)
+            return;
 
         JLabel title = new JLabel("Step 4: Collect Data");
         title.setFont(UITheme.fontTitle());
@@ -49,7 +50,8 @@ public class CollectPanel extends JPanel {
         contentPanel.add(title);
         contentPanel.add(Box.createVerticalStrut(4));
 
-        JLabel subtitle = new JLabel("Raw values are shown for each metric. Scores (1–5) are automatically calculated.");
+        JLabel subtitle = new JLabel(
+                "Raw values are shown for each metric. Scores (1–5) are automatically calculated.");
         subtitle.setFont(UITheme.fontBody());
         subtitle.setForeground(UITheme.TEXT_SECONDARY);
         subtitle.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -65,7 +67,7 @@ public class CollectPanel extends JPanel {
                 g2.fillRoundRect(0, 0, getWidth(), getHeight(), 8, 8);
                 g2.setColor(UITheme.ACCENT);
                 g2.setStroke(new BasicStroke(1));
-                g2.drawRoundRect(0, 0, getWidth()-1, getHeight()-1, 8, 8);
+                g2.drawRoundRect(0, 0, getWidth() - 1, getHeight() - 1, 8, 8);
                 g2.dispose();
             }
         };
@@ -76,7 +78,8 @@ public class CollectPanel extends JPanel {
         formulaCard.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         JLabel f1 = new JLabel("Higher is better:  score = 1 + (value − min) / (max − min) × 4");
-        JLabel f2 = new JLabel("Lower is better:   score = 5 − (value − min) / (max − min) × 4   [rounded to nearest 0.5]");
+        JLabel f2 = new JLabel(
+                "Lower is better:   score = 5 − (value − min) / (max − min) × 4   [rounded to nearest 0.5]");
         f1.setFont(UITheme.fontMono());
         f2.setFont(UITheme.fontMono());
         f1.setForeground(UITheme.ACCENT);
@@ -86,11 +89,12 @@ public class CollectPanel extends JPanel {
         contentPanel.add(formulaCard);
         contentPanel.add(Box.createVerticalStrut(18));
 
-        String[] columns = {"Metric", "Direction", "Range", "Value", "Score (1–5)", "Coeff / Unit"};
+        String[] columns = { "Metric", "Direction", "Range", "Value", "Score (1–5)", "Coeff / Unit" };
         List<QualityDimension> dimensions = scenario.getDimensions();
 
         int totalRows = 0;
-        for (QualityDimension d : dimensions) totalRows += d.getMetrics().size();
+        for (QualityDimension d : dimensions)
+            totalRows += d.getMetrics().size();
 
         Object[][] data = new Object[totalRows][6];
         int row = 0;
@@ -109,7 +113,9 @@ public class CollectPanel extends JPanel {
 
         DefaultTableModel model = new DefaultTableModel(data, columns) {
             @Override
-            public boolean isCellEditable(int r, int c) { return false; }
+            public boolean isCellEditable(int r, int c) {
+                return false;
+            }
         };
         JTable table = createStyledTable(model, totalRows);
         int tableH = table.getRowHeight() * totalRows + 26;
@@ -147,7 +153,8 @@ public class CollectPanel extends JPanel {
     }
 
     private String formatValue(double v, String unit) {
-        if (v == Math.floor(v)) return String.valueOf((int) v);
+        if (v == Math.floor(v))
+            return String.valueOf((int) v);
         return String.valueOf(v);
     }
 
@@ -172,7 +179,8 @@ public class CollectPanel extends JPanel {
 
         table.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
             @Override
-            public Component getTableCellRendererComponent(JTable t, Object val, boolean sel, boolean focus, int row, int col) {
+            public Component getTableCellRendererComponent(JTable t, Object val, boolean sel, boolean focus, int row,
+                    int col) {
                 super.getTableCellRendererComponent(t, val, sel, focus, row, col);
                 setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));
 
@@ -186,7 +194,8 @@ public class CollectPanel extends JPanel {
                     setHorizontalAlignment(SwingConstants.CENTER);
                     setText(String.format("%.1f", score));
                 } else {
-                    setBackground(sel ? new Color(59, 130, 246, 60) : (row % 2 == 0 ? UITheme.TABLE_ROW : UITheme.TABLE_ROW_ALT));
+                    setBackground(sel ? new Color(59, 130, 246, 60)
+                            : (row % 2 == 0 ? UITheme.TABLE_ROW : UITheme.TABLE_ROW_ALT));
                     setForeground(UITheme.TEXT_PRIMARY);
                     setFont(UITheme.fontBody());
                     setHorizontalAlignment(SwingConstants.LEFT);
@@ -206,10 +215,14 @@ public class CollectPanel extends JPanel {
     }
 
     private Color getScoreColor(double score) {
-        if (score >= 4.5) return new Color(21, 128, 61);
-        if (score >= 3.5) return new Color(22, 163, 74);
-        if (score >= 2.5) return new Color(202, 138, 4);
-        if (score >= 1.5) return new Color(194, 65, 12);
+        if (score >= 4.5)
+            return new Color(21, 128, 61);
+        if (score >= 3.5)
+            return new Color(22, 163, 74);
+        if (score >= 2.5)
+            return new Color(202, 138, 4);
+        if (score >= 1.5)
+            return new Color(194, 65, 12);
         return new Color(185, 28, 28);
     }
 }

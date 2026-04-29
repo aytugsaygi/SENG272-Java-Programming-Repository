@@ -36,7 +36,8 @@ public class AnalysePanel extends JPanel {
         contentPanel.removeAll();
 
         Scenario scenario = controller.getSession().getSelectedScenario();
-        if (scenario == null) return;
+        if (scenario == null)
+            return;
 
         JLabel title = new JLabel("Step 5: Analyse Results");
         title.setFont(UITheme.fontTitle());
@@ -87,7 +88,7 @@ public class AnalysePanel extends JPanel {
                 g2.fillRoundRect(0, 0, getWidth(), getHeight(), 12, 12);
                 g2.setColor(UITheme.BORDER);
                 g2.setStroke(new BasicStroke(1));
-                g2.drawRoundRect(0, 0, getWidth()-1, getHeight()-1, 12, 12);
+                g2.drawRoundRect(0, 0, getWidth() - 1, getHeight() - 1, 12, 12);
                 g2.dispose();
             }
         };
@@ -187,7 +188,7 @@ public class AnalysePanel extends JPanel {
                 g2.fillRoundRect(0, barY, totalW, barH, barH, barH);
 
                 double ratio = score / 5.0;
-                int fillW = (int)(totalW * ratio);
+                int fillW = (int) (totalW * ratio);
                 Color barColor = getScoreColor(score);
                 g2.setColor(barColor);
                 if (fillW > barH) {
@@ -238,7 +239,7 @@ public class AnalysePanel extends JPanel {
                 g2.fillRoundRect(0, 0, getWidth(), getHeight(), 12, 12);
                 g2.setColor(UITheme.DANGER);
                 g2.setStroke(new BasicStroke(1));
-                g2.drawRoundRect(0, 0, getWidth()-1, getHeight()-1, 12, 12);
+                g2.drawRoundRect(0, 0, getWidth() - 1, getHeight() - 1, 12, 12);
                 g2.dispose();
             }
         };
@@ -294,10 +295,14 @@ public class AnalysePanel extends JPanel {
     }
 
     private Color getScoreColor(double score) {
-        if (score >= 4.5) return new Color(21, 128, 61);
-        if (score >= 3.5) return new Color(22, 163, 74);
-        if (score >= 2.5) return UITheme.ACCENT;
-        if (score >= 1.5) return new Color(194, 65, 12);
+        if (score >= 4.5)
+            return new Color(21, 128, 61);
+        if (score >= 3.5)
+            return new Color(22, 163, 74);
+        if (score >= 2.5)
+            return UITheme.ACCENT;
+        if (score >= 1.5)
+            return new Color(194, 65, 12);
         return UITheme.DANGER;
     }
 }

@@ -8,23 +8,54 @@ public class UserSession {
     private String mode;
     private Scenario selectedScenario;
 
-    public UserSession() {}
+    public UserSession() {
+    }
 
-    public String getUsername() { return username; }
-    public void setUsername(String username) { this.username = username; }
+    public String getUsername() {
+        return username;
+    }
 
-    public String getSchool() { return school; }
-    public void setSchool(String school) { this.school = school; }
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-    public String getSessionName() { return sessionName; }
-    public void setSessionName(String sessionName) { this.sessionName = sessionName; }
+    public String getSchool() {
+        return school;
+    }
 
-    public String getQualityType() { return qualityType; }
-    public void setQualityType(String qualityType) { this.qualityType = qualityType; }
+    public void setSchool(String school) {
+        this.school = school;
+    }
 
-    public String getMode() { return mode; }
-    public void setMode(String mode) { this.mode = mode; }
+    public String getSessionName() {
+        return sessionName;
+    }
 
-    public Scenario getSelectedScenario() { return selectedScenario; }
-    public void setSelectedScenario(Scenario scenario) { this.selectedScenario = scenario; }
+    public void setSessionName(String sessionName) {
+        this.sessionName = sessionName;
+    }
+
+    public String getQualityType() {
+        return qualityType;
+    }
+
+    public void setQualityType(String qualityType) {
+        this.qualityType = qualityType;
+    }
+
+    public String getMode() {
+        return mode;
+    }
+
+    public void setMode(String mode) {
+        this.mode = mode;
+    }
+
+    public Scenario getSelectedScenario() {
+        return selectedScenario;
+    }
+
+    public void setSelectedScenario(Scenario scenario) {
+        this.selectedScenario = scenario;
+    }
 }

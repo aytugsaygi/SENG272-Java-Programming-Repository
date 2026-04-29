@@ -58,13 +58,17 @@ public class DefinePanel extends JPanel {
         qualityCard.setLayout(new GridLayout(1, 2, 12, 0));
 
         qualityTypeGroup = new ButtonGroup();
-        productQualityBtn = makeRadioCard("Product Quality", "Software product characteristics:\nperformance, security, usability, reliability");
-        processQualityBtn = makeRadioCard("Process Quality", "Development process characteristics:\nsprint efficiency, code quality, team collaboration");
+        productQualityBtn = makeRadioCard("Product Quality",
+                "Software product characteristics:\nperformance, security, usability, reliability");
+        processQualityBtn = makeRadioCard("Process Quality",
+                "Development process characteristics:\nsprint efficiency, code quality, team collaboration");
         qualityTypeGroup.add(productQualityBtn);
         qualityTypeGroup.add(processQualityBtn);
         productQualityBtn.setSelected(true);
-        qualityCard.add(wrapRadioCard(productQualityBtn, "Product Quality", "Software product characteristics:\nperformance, security, usability, reliability"));
-        qualityCard.add(wrapRadioCard(processQualityBtn, "Process Quality", "Development process characteristics:\nsprint efficiency, code quality, team collaboration"));
+        qualityCard.add(wrapRadioCard(productQualityBtn, "Product Quality",
+                "Software product characteristics:\nperformance, security, usability, reliability"));
+        qualityCard.add(wrapRadioCard(processQualityBtn, "Process Quality",
+                "Development process characteristics:\nsprint efficiency, code quality, team collaboration"));
 
         scrollContent.add(qualityCard);
         scrollContent.add(Box.createVerticalStrut(20));
@@ -83,9 +87,11 @@ public class DefinePanel extends JPanel {
         modeGroup.add(educationModeBtn);
         healthModeBtn.setSelected(true);
 
-        modeCard.add(wrapModeCard(customModeBtn, "Custom", "Define your own dimensions and metrics from scratch (Bonus)"));
+        modeCard.add(
+                wrapModeCard(customModeBtn, "Custom", "Define your own dimensions and metrics from scratch (Bonus)"));
         modeCard.add(wrapModeCard(healthModeBtn, "Health", "Health management system scenarios (ready-made dataset)"));
-        modeCard.add(wrapModeCard(educationModeBtn, "Education", "Education LMS system scenarios (ready-made dataset)"));
+        modeCard.add(
+                wrapModeCard(educationModeBtn, "Education", "Education LMS system scenarios (ready-made dataset)"));
 
         ActionListener modeListener = (ActionEvent e) -> updateScenarios();
         customModeBtn.addActionListener(modeListener);
@@ -155,7 +161,7 @@ public class DefinePanel extends JPanel {
                     g2.fillRoundRect(0, 0, getWidth(), getHeight(), 10, 10);
                     g2.setColor(UITheme.BORDER);
                     g2.setStroke(new BasicStroke(1));
-                    g2.drawRoundRect(0, 0, getWidth()-1, getHeight()-1, 10, 10);
+                    g2.drawRoundRect(0, 0, getWidth() - 1, getHeight() - 1, 10, 10);
                     g2.dispose();
                 }
             };
@@ -183,11 +189,13 @@ public class DefinePanel extends JPanel {
         scenarioPanel.repaint();
     }
 
-
     private String getSelectedMode() {
-        if (customModeBtn.isSelected()) return "Custom";
-        if (healthModeBtn.isSelected()) return "Health";
-        if (educationModeBtn.isSelected()) return "Education";
+        if (customModeBtn.isSelected())
+            return "Custom";
+        if (healthModeBtn.isSelected())
+            return "Health";
+        if (educationModeBtn.isSelected())
+            return "Education";
         return "Health";
     }
 
@@ -210,7 +218,8 @@ public class DefinePanel extends JPanel {
     private void onNext() {
         Scenario selected = getSelectedScenario();
         if (selected == null) {
-            JOptionPane.showMessageDialog(this, "Please select a scenario to continue.", "Selection Required", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Please select a scenario to continue.", "Selection Required",
+                    JOptionPane.WARNING_MESSAGE);
             return;
         }
         controller.getSession().setQualityType(productQualityBtn.isSelected() ? "Product Quality" : "Process Quality");
@@ -260,7 +269,7 @@ public class DefinePanel extends JPanel {
                 g2.fillRoundRect(0, 0, getWidth(), getHeight(), 12, 12);
                 g2.setColor(btn.isSelected() ? UITheme.PRIMARY_LIGHT : UITheme.BORDER);
                 g2.setStroke(new BasicStroke(btn.isSelected() ? 2 : 1));
-                g2.drawRoundRect(0, 0, getWidth()-1, getHeight()-1, 12, 12);
+                g2.drawRoundRect(0, 0, getWidth() - 1, getHeight() - 1, 12, 12);
                 g2.dispose();
             }
         };
@@ -300,7 +309,7 @@ public class DefinePanel extends JPanel {
                 g2.fillRoundRect(0, 0, getWidth(), getHeight(), 12, 12);
                 g2.setColor(btn.isSelected() ? UITheme.SECONDARY : UITheme.BORDER);
                 g2.setStroke(new BasicStroke(btn.isSelected() ? 2 : 1));
-                g2.drawRoundRect(0, 0, getWidth()-1, getHeight()-1, 12, 12);
+                g2.drawRoundRect(0, 0, getWidth() - 1, getHeight() - 1, 12, 12);
                 g2.dispose();
             }
         };

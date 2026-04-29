@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class StepIndicator extends JPanel {
-    private static final String[] STEP_NAMES = {"Profile", "Define", "Plan", "Collect", "Analyse"};
+    private static final String[] STEP_NAMES = { "Profile", "Define", "Plan", "Collect", "Analyse" };
     private int currentStep;
     private boolean[] completed;
 
@@ -58,9 +58,12 @@ public class StepIndicator extends JPanel {
 
             Color circleColor;
             if (i == currentStep) {
-                circleColor = UITheme.STEP_ACTIVE;            } else if (completed[i]) {
-                circleColor = UITheme.STEP_DONE;            } else {
-                circleColor = UITheme.STEP_INACTIVE;            }
+                circleColor = UITheme.STEP_ACTIVE;
+            } else if (completed[i]) {
+                circleColor = UITheme.STEP_DONE;
+            } else {
+                circleColor = UITheme.STEP_INACTIVE;
+            }
 
             g2.setColor(circleColor);
             g2.fillOval(cx - circleR, cy - circleR, circleR * 2, circleR * 2);

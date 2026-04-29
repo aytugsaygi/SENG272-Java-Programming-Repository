@@ -9,7 +9,8 @@ public class Metric {
     private String unit;
     private double value;
 
-    public Metric(String name, int coefficient, String direction, double rangeMin, double rangeMax, String unit, double value) {
+    public Metric(String name, int coefficient, String direction, double rangeMin, double rangeMax, String unit,
+            double value) {
         this.name = name;
         this.coefficient = coefficient;
         this.direction = direction;
@@ -19,14 +20,37 @@ public class Metric {
         this.value = value;
     }
 
-    public String getName() { return name; }
-    public int getCoefficient() { return coefficient; }
-    public String getDirection() { return direction; }
-    public double getRangeMin() { return rangeMin; }
-    public double getRangeMax() { return rangeMax; }
-    public String getUnit() { return unit; }
-    public double getValue() { return value; }
-    public void setValue(double value) { this.value = value; }
+    public String getName() {
+        return name;
+    }
+
+    public int getCoefficient() {
+        return coefficient;
+    }
+
+    public String getDirection() {
+        return direction;
+    }
+
+    public double getRangeMin() {
+        return rangeMin;
+    }
+
+    public double getRangeMax() {
+        return rangeMax;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public double getValue() {
+        return value;
+    }
+
+    public void setValue(double value) {
+        this.value = value;
+    }
 
     public double calculateScore() {
         double min = rangeMin;

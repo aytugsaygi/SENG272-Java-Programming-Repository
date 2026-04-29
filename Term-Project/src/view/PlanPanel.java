@@ -40,7 +40,8 @@ public class PlanPanel extends JPanel {
         contentPanel.removeAll();
 
         Scenario scenario = controller.getSession().getSelectedScenario();
-        if (scenario == null) return;
+        if (scenario == null)
+            return;
 
         JLabel title = new JLabel("Step 3: Plan Measurement");
         title.setFont(UITheme.fontTitle());
@@ -49,7 +50,8 @@ public class PlanPanel extends JPanel {
         contentPanel.add(title);
         contentPanel.add(Box.createVerticalStrut(4));
 
-        JLabel subtitle = new JLabel("Scenario: " + scenario.getName() + " — Quality dimensions and metrics (read-only)");
+        JLabel subtitle = new JLabel(
+                "Scenario: " + scenario.getName() + " — Quality dimensions and metrics (read-only)");
         subtitle.setFont(UITheme.fontBody());
         subtitle.setForeground(UITheme.TEXT_SECONDARY);
         subtitle.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -78,7 +80,7 @@ public class PlanPanel extends JPanel {
             dimHeader.add(dimLabel);
             contentPanel.add(dimHeader);
 
-            String[] columns = {"Metric", "Coefficient", "Direction", "Range", "Unit"};
+            String[] columns = { "Metric", "Coefficient", "Direction", "Range", "Unit" };
             List<Metric> metrics = dim.getMetrics();
             Object[][] data = new Object[metrics.size()][5];
             for (int i = 0; i < metrics.size(); i++) {
@@ -92,7 +94,9 @@ public class PlanPanel extends JPanel {
 
             DefaultTableModel model = new DefaultTableModel(data, columns) {
                 @Override
-                public boolean isCellEditable(int row, int col) { return false; }
+                public boolean isCellEditable(int row, int col) {
+                    return false;
+                }
             };
             JTable table = createStyledTable(model);
             JScrollPane tableScroll = new JScrollPane(table);
@@ -150,9 +154,11 @@ public class PlanPanel extends JPanel {
 
         table.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
             @Override
-            public Component getTableCellRendererComponent(JTable t, Object val, boolean sel, boolean focus, int row, int col) {
+            public Component getTableCellRendererComponent(JTable t, Object val, boolean sel, boolean focus, int row,
+                    int col) {
                 super.getTableCellRendererComponent(t, val, sel, focus, row, col);
-                setBackground(sel ? new Color(59, 130, 246, 60) : (row % 2 == 0 ? UITheme.TABLE_ROW : UITheme.TABLE_ROW_ALT));
+                setBackground(
+                        sel ? new Color(59, 130, 246, 60) : (row % 2 == 0 ? UITheme.TABLE_ROW : UITheme.TABLE_ROW_ALT));
                 setForeground(UITheme.TEXT_PRIMARY);
                 setFont(UITheme.fontBody());
                 setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));

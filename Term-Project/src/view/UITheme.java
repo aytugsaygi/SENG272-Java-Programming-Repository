@@ -27,18 +27,23 @@ public class UITheme {
     public static Font fontTitle() {
         return new Font("Segoe UI", Font.BOLD, 22);
     }
+
     public static Font fontSubtitle() {
         return new Font("Segoe UI", Font.BOLD, 16);
     }
+
     public static Font fontBody() {
         return new Font("Segoe UI", Font.PLAIN, 13);
     }
+
     public static Font fontSmall() {
         return new Font("Segoe UI", Font.PLAIN, 11);
     }
+
     public static Font fontMono() {
         return new Font("Consolas", Font.PLAIN, 12);
     }
+
     public static Font fontBold() {
         return new Font("Segoe UI", Font.BOLD, 13);
     }
@@ -69,9 +74,8 @@ public class UITheme {
         tf.setCaretColor(TEXT_PRIMARY);
         tf.setFont(fontBody());
         tf.setBorder(javax.swing.BorderFactory.createCompoundBorder(
-            javax.swing.BorderFactory.createLineBorder(BORDER, 1),
-            javax.swing.BorderFactory.createEmptyBorder(8, 12, 8, 12)
-        ));
+                javax.swing.BorderFactory.createLineBorder(BORDER, 1),
+                javax.swing.BorderFactory.createEmptyBorder(8, 12, 8, 12)));
         return tf;
     }
 }

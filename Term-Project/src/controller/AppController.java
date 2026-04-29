@@ -15,9 +15,13 @@ public class AppController {
         mainFrame.setVisible(true);
     }
 
-    public UserSession getSession() { return session; }
+    public UserSession getSession() {
+        return session;
+    }
 
-    public int getCurrentStep() { return currentStep; }
+    public int getCurrentStep() {
+        return currentStep;
+    }
 
     public void goToStep(int step) {
         this.currentStep = step;
@@ -29,7 +33,8 @@ public class AppController {
     }
 
     public void previousStep() {
-        if (currentStep > 0) goToStep(currentStep - 1);
+        if (currentStep > 0)
+            goToStep(currentStep - 1);
     }
 
     public void markStepCompleted(int step) {

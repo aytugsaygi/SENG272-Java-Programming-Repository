@@ -18,7 +18,8 @@ public class RadarChart extends JPanel {
     }
 
     private void updateData() {
-        if (dimensions == null || dimensions.isEmpty()) return;
+        if (dimensions == null || dimensions.isEmpty())
+            return;
         int n = dimensions.size();
         scores = new double[n];
         labels = new String[n];
@@ -31,7 +32,8 @@ public class RadarChart extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        if (scores == null || scores.length == 0) return;
+        if (scores == null || scores.length == 0)
+            return;
 
         Graphics2D g2 = (Graphics2D) g.create();
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -56,7 +58,7 @@ public class RadarChart extends JPanel {
             if (r < rings) {
                 g2.setFont(UITheme.fontSmall().deriveFont(9f));
                 g2.setColor(UITheme.TEXT_MUTED);
-                g2.drawString(String.valueOf(r), cx + 4, (int)(cy - ringRadius) + 4);
+                g2.drawString(String.valueOf(r), cx + 4, (int) (cy - ringRadius) + 4);
             }
         }
 
@@ -64,8 +66,8 @@ public class RadarChart extends JPanel {
         g2.setColor(new Color(100, 116, 139, 120));
         for (int i = 0; i < n; i++) {
             double angle = Math.toRadians(270 + 360.0 * i / n);
-            int ax = (int)(cx + radius * Math.cos(angle));
-            int ay = (int)(cy + radius * Math.sin(angle));
+            int ax = (int) (cx + radius * Math.cos(angle));
+            int ay = (int) (cy + radius * Math.sin(angle));
             g2.drawLine(cx, cy, ax, ay);
         }
 
@@ -74,8 +76,8 @@ public class RadarChart extends JPanel {
         for (int i = 0; i < n; i++) {
             double angle = Math.toRadians(270 + 360.0 * i / n);
             double r2 = radius * scores[i] / maxScore;
-            dataX[i] = (int)(cx + r2 * Math.cos(angle));
-            dataY[i] = (int)(cy + r2 * Math.sin(angle));
+            dataX[i] = (int) (cx + r2 * Math.cos(angle));
+            dataY[i] = (int) (cy + r2 * Math.sin(angle));
         }
 
         Polygon dataPoly = new Polygon(dataX, dataY, n);
@@ -97,16 +99,18 @@ public class RadarChart extends JPanel {
         for (int i = 0; i < n; i++) {
             double angle = Math.toRadians(270 + 360.0 * i / n);
             double labelR = radius + 28;
-            int lx = (int)(cx + labelR * Math.cos(angle));
-            int ly = (int)(cy + labelR * Math.sin(angle));
+            int lx = (int) (cx + labelR * Math.cos(angle));
+            int ly = (int) (cy + labelR * Math.sin(angle));
 
             String label = labels[i];
             String scoreStr = String.format("%.2f", scores[i]);
             FontMetrics fm = g2.getFontMetrics();
             int lw = fm.stringWidth(label);
 
-            if (Math.cos(angle) < -0.1) lx -= lw;
-            else if (Math.abs(Math.cos(angle)) <= 0.1) lx -= lw / 2;
+            if (Math.cos(angle) < -0.1)
+                lx -= lw;
+            else if (Math.abs(Math.cos(angle)) <= 0.1)
+                lx -= lw / 2;
 
             g2.setColor(UITheme.TEXT_PRIMARY);
             g2.drawString(label, lx, ly);
@@ -130,8 +134,8 @@ public class RadarChart extends JPanel {
         int[] ys = new int[n];
         for (int i = 0; i < n; i++) {
             double angle = Math.toRadians(270 + 360.0 * i / n);
-            xs[i] = (int)(cx + radius * Math.cos(angle));
-            ys[i] = (int)(cy + radius * Math.sin(angle));
+            xs[i] = (int) (cx + radius * Math.cos(angle));
+            ys[i] = (int) (cy + radius * Math.sin(angle));
         }
         return new Polygon(xs, ys, n);
     }
