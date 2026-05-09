@@ -118,7 +118,6 @@ public class ProjectFormPanel extends JPanel {
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("projects.txt", true))) {
 
-            writer.write("---- Project Entry ----");
             writer.newLine();
             writer.write("Project Name : " + projectName);
             writer.newLine();
@@ -132,15 +131,14 @@ public class ProjectFormPanel extends JPanel {
             writer.newLine();
             writer.write("Record Time  : " + recordTime);
             writer.newLine();
-            writer.write("========================");
             writer.newLine();
             writer.newLine();
 
-            JOptionPane.showMessageDialog(this, "Project saved successfully!", "Success",
+            JOptionPane.showMessageDialog(this, "Project saved.", "Success",
                     JOptionPane.INFORMATION_MESSAGE);
 
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(this, "Error writing to file!", "File Error",
+            JOptionPane.showMessageDialog(this, "Error!", "File Error",
                     JOptionPane.ERROR_MESSAGE);
         }
     }
