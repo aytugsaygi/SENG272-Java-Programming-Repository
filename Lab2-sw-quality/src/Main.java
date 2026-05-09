@@ -19,6 +19,5 @@ public class Main {
         shopSphere.getDimensions().get(3).getCriteria().get(0).setMeasuredValue(72);
         shopSphere.getDimensions().get(3).getCriteria().get(1).setMeasuredValue(8.5);
         shopSphere.printReport();
-        
     }
 }

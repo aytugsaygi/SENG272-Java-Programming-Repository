@@ -68,10 +68,8 @@ public class SWSystem {
 
     public void printReport() {
 
-        System.out.println("========================================");
         System.out.println("SOFTWARE QUALITY EVALUATION REPORT (ISO/IEC 25010)");
         System.out.println("System: " + name + " v" + version + " (" + category + ")");
-        System.out.println("========================================");
 
         for (QualityDimension d : dimensions) {
             System.out.println(
@@ -91,23 +89,18 @@ public class SWSystem {
 
         double overall = calculateOverallScore();
 
-        System.out.println("\n========================================");
         System.out.println("OVERALL QUALITY SCORE: "
                 + overall + "/5 [" + getQualityLabel(overall) + "]");
-        System.out.println("========================================");
 
         QualityDimension weakest = findWeakestDimension();
         double weakestScore = weakest.calculateDimensionScore();
         double gap = Math.round((5 - weakestScore) * 10) / 10.0;
 
-        System.out.println("\n========================================");
         System.out.println("GAP ANALYSIS (ISO/IEC 25010)");
-        System.out.println("========================================");
         System.out.println("Weakest Characteristic : " + weakest.getName() + " [" + weakest.getIsoCode() + "]");
         System.out.println("Score: " + weakestScore + "/5  |  Gap: " + gap);
         System.out.println("Level: " + weakest.getQualityLabel(weakestScore));
         System.out.println(">> This characteristic requires the most improvement.");
-        System.out.println("========================================");
     }
 
     private String capitalize(String text) {

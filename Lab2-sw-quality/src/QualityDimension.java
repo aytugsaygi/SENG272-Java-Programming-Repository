@@ -40,7 +40,7 @@ public class QualityDimension {
         double total = 0;
         double weights = 0;
 
-        for(Criterion c : criteria) {
+        for (Criterion c : criteria) {
 
             total += c.calculateScore() * c.getWeight();
             weights += c.getWeight();
@@ -53,9 +53,12 @@ public class QualityDimension {
 
     public String getQualityLabel(double score) {
 
-        if(score >= 4.5) return "Excellent Quality";
-        if(score >= 3.5) return "Good Quality";
-        if(score >= 2.5) return "Needs Improvement";
+        if (score >= 4.5)
+            return "Excellent Quality";
+        if (score >= 3.5)
+            return "Good Quality";
+        if (score >= 2.5)
+            return "Needs Improvement";
 
         return "Poor Quality";
     }

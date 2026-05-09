@@ -9,7 +9,7 @@ public class Criterion {
     private double measuredValue;
 
     public Criterion(String metricName, double weight, String direction,
-                     double minValue, double maxValue, String unit) {
+            double minValue, double maxValue, String unit) {
 
         this.metricName = metricName;
         this.weight = weight;
@@ -47,7 +47,7 @@ public class Criterion {
 
         double score;
 
-        if(direction.equalsIgnoreCase("higher")) {
+        if (direction.equalsIgnoreCase("higher")) {
             score = 1 + (measuredValue - minValue) / (maxValue - minValue) * 4;
         } else {
             score = 5 - (measuredValue - minValue) / (maxValue - minValue) * 4;
